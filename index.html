@@ -86,17 +86,6 @@
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
 
-
-//////////ingreso de wms
-         // var Satelite =L.tileLayer.wms('http://ows.mundialis.de/services/service?',{layers:'OSM-WMS'}).addTo(map);
-
-        var basemaps=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 22,attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'})
-            map.addLayer(basemaps);
-
-        var estrato =L.tileLayer.wms('http://idesc.cali.gov.co:8081/geoserver/wms?service=WMS&version=1.1.0',{layers: 'idesc:est_estrato_social_lado_manzana',attribution: 'Creditos de la capa',format: 'image/png',transparent: true})
-            map.addLayer(estrato);
-
-
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
         var measureControl = new L.Control.Measure({
@@ -403,6 +392,20 @@
         map.addLayer(layer_PlaneacinMunicipalNomenclaturavial_3);
         map.createPane('pane_Mapabase_4');
         map.getPane('pane_Mapabase_4').style.zIndex = 404;
+
+
+
+//////////ingreso de wms
+         // var Satelite =L.tileLayer.wms('http://ows.mundialis.de/services/service?',{layers:'OSM-WMS'}).addTo(map);
+
+        ///var basemaps=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 22,attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'})
+           // map.addLayer(basemaps);
+
+        var estrato =L.tileLayer.wms('http://idesc.cali.gov.co:8081/geoserver/wms?service=WMS&version=1.1.0',{layers: 'idesc:est_estrato_social_lado_manzana',attribution: 'Creditos de la capa',format: 'image/png',transparent: true})
+            map.addLayer(estrato);
+
+
+        
         var layer_Mapabase_4 = L.WMS.layer("http://ws-idesc.cali.gov.co:8081/geoserver/wms?version=1.1.0", "Mapa base", {
             pane: 'pane_Mapabase_4',
             format: 'image/png',
