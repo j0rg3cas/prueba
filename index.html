@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="css/leaflet-search.css">
         <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+
         <style>
         html, body, #map {
             width: 100%;
@@ -50,8 +50,7 @@
         <script src="data/comunas2_0.js"></script>
         <script src="data/barrios1_1.js"></script>
         <script src="data/hurtos_2.js"></script>
-        <script src="leaflet.easyPrint.js"></script>
-        <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
         <script>
 
 
@@ -439,7 +438,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{"Mapa base": layer_Mapabase_4,"Planeación Municipal: Nomenclatura vial": layer_PlaneacinMunicipalNomenclaturavial_3,'<img src="legend/hurtos_2.png" /> hurtos': layer_hurtos_2,'<img src="legend/barrios1_1.png" /> barrios1': layer_barrios1_1,'<img src="legend/comunas2_0.png" /> comunas2': layer_comunas2_0,'<img src="legend/comunas2_0.png" /> comunas2': Satelite,'<img src="legend/comunas2_0.png" /> comunas2': basemaps,'<img src="legend/comunas2_0.png" /> comunas2': estrato, }).addTo(map);
+        L.control.layers(baseMaps,{"Mapa base": layer_Mapabase_4,"Planeación Municipal: Nomenclatura vial": layer_PlaneacinMunicipalNomenclaturavial_3,'<img src="legend/hurtos_2.png" /> hurtos': layer_hurtos_2,'<img src="legend/barrios1_1.png" /> barrios1': layer_barrios1_1,'<img src="legend/comunas2_0.png" /> comunas2': layer_comunas2_0,'<img src="legend/comunas2_0.png" /> comunas2': basemaps,'<img src="legend/comunas2_0.png" /> comunas2': estrato, }).addTo(map);
         setBounds();
         map.addControl(new L.Control.Search({
             layer: layer_barrios1_1,
@@ -449,7 +448,7 @@
         document.getElementsByClassName('search-button')[0].className +=
          ' fa fa-binoculars';
 //////////ingreso de wms
-          var Satelite =L.tileLayer.wms('http://ows.mundialis.de/services/service?',{layers: 'OSM-WMS'}).addTo(map);
+          var Satelite =L.tileLayer.wms('http://ows.mundialis.de/services/service?',{layers:'OSM-WMS'}).addTo(map);
 
           var  basemaps=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 22,attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'}).addTo(map);
 
@@ -464,11 +463,11 @@
             }
             north.addTo(map);
 
-            L.control.scale({position:'bottomleft'}).addTo(map);
+          L.control.scale({position:'bottomleft'}).addTo(map);
 
 
             ///////////// imprimir
-             L.easyPrint({title: 'Mi botón para imprimir',position: 'bottomright', elementsToHide: 'p, h2, .leaflet-control-zoom'}).addTo(map); 
+          L.easyPrint({title: 'Mi botón para imprimir',position: 'bottomright', elementsToHide: 'p, h2, .leaflet-control-zoom'}).addTo(map); 
 
 
 
