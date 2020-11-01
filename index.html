@@ -88,17 +88,15 @@
 
 
 //////////ingreso de wms
-         // var Satelite =L.tileLayer.wms('http://ows.mundialis.de/services/service?',{layers:'OSM-WMS'}).addTo(map);
-        
-        var Satelite =  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {maxZoom: 22,attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'})
-
+        var Satelite =L.tileLayer.wms('http://ows.mundialis.de/services/service?',{layers:'OSM-WMS'}).
             map.addLayer(Satelite);
-
-        var basemaps=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 22,attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'})
-            map.addLayer(basemaps);
 
         var estrato =L.tileLayer.wms('http://idesc.cali.gov.co:8081/geoserver/wms?service=WMS&version=1.1.0',{layers: 'idesc:est_estrato_social_lado_manzana',attribution: 'Creditos de la capa',format: 'image/png',transparent: true})
             map.addLayer(estrato);
+        
+
+        var basemaps=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 22,attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'})
+            map.addLayer(basemaps);
 
 
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -456,7 +454,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{"Mapa base": layer_Mapabase_4,"Planeación Municipal: Nomenclatura vial": layer_PlaneacinMunicipalNomenclaturavial_3,'<img src="legend/hurtos_2.png" /> hurtos': layer_hurtos_2,'<img src="legend/barrios1_1.png" /> barrios1': layer_barrios1_1,'<img src="legend/comunas2_0.png" /> comunas2': layer_comunas2_0,'<img src="legend/barrios1_1.png" /> Satelite':Satelite,'<img src="legend/barrios1_1.png" /> estrato':estrato,'<img src="legend/barrios1_1.png" /> basemaps':basemaps,}).addTo(map);
+        L.control.layers(baseMaps,{"Mapa base": layer_Mapabase_4,"Planeación Municipal: Nomenclatura vial": layer_PlaneacinMunicipalNomenclaturavial_3,'<img src="legend/hurtos_2.png" /> hurtos': layer_hurtos_2,'<img src="legend/barrios1_1.png" /> barrios1': layer_barrios1_1,'<img src="legend/comunas2_0.png" /> comunas2': layer_comunas2_0,'<img src="legend/barrios1_1.png" /> estrato':estrato,'<img src="legend/barrios1_1.png" /> Satelite':Satelite,'<img src="legend/barrios1_1.png" /> basemaps':basemaps,}).addTo(map);
         setBounds();
         map.addControl(new L.Control.Search({
             layer: layer_barrios1_1,
