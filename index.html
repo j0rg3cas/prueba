@@ -395,13 +395,6 @@
 
 
 
-//////////ingreso de wms
-
-        var estrato =L.tileLayer.wms('http://idesc.cali.gov.co:8081/geoserver/wms?service=WMS&version=1.1.0',{layers: 'idesc:est_estrato_social_lado_manzana',attribution: 'Creditos de la capa',format: 'image/png',transparent: true});
-        map.addLayer(estrato);
-
-
-
         var layer_Mapabase_4 = L.WMS.layer("http://ws-idesc.cali.gov.co:8081/geoserver/wms?version=1.1.0", "Mapa base", {
             pane: 'pane_Mapabase_4',
             format: 'image/png',
@@ -437,7 +430,7 @@
                 abstract.show = function () {
                     this._div.classList.remove("abstract");
                     this._div.classList.add("abstractUncollapsed");
-                    this._div.innerHTML = 'geoVias';
+                    this._div.innerHTML = 'geoNoticias';
             };
             abstract.addTo(map);
         var osmGeocoder = new L.Control.Geocoder({
