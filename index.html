@@ -485,10 +485,19 @@
               map.addControl(printControl);
 
              L.control.browserPrint().addTo(map);
-             L.tileLayer('http://a.tile.openstreetmap.org//{z}/{x}/{y}.png', {
-                attribution: '',
-                maxZoom: 18,
-                }).addTo(map);
+
+             L.control.browserPrint.mode(
+        /*Mode from table above*/,
+        /*Text to represent mode on button*/,
+        /*Page Size that can basically be in range A0-A10 and B0-B10.*/
+        /*Custom function that can be executed to print map*/,
+        /*Indicates if we need to force bounds invalidation(true) or just center the map and use current zoom lvl(false)*/
+                );
+
+                L.control.browserPrint.mode.landscape();
+                L.control.browserPrint.mode.portrait();
+                L.control.browserPrint.mode.auto();
+                L.control.browserPrint.mode.custom();
 
         </script>
     </body>
