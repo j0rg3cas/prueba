@@ -11,7 +11,6 @@
         <link rel="stylesheet" href="css/leaflet-search.css">
         <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
-
         <style>
         html, body, #map {
             width: 100%;
@@ -19,7 +18,7 @@
             padding: 0;
             margin: 0;
         }
-             #norte{
+         #norte{
                 position:absolute;
                 width:5.5%;
                 left: 6.8%;
@@ -27,7 +26,7 @@
                 }
 
         </style>
-        <title>.GeoNoti.</title>
+        <title>GeoNoti</title>
     </head>
     <body>
         <div id="map">
@@ -50,11 +49,7 @@
         <script src="data/comunas2_0.js"></script>
         <script src="data/barrios1_1.js"></script>
         <script src="data/hurtos_2.js"></script>
-
         <script>
-
-
-
 
         var highlightLayer;
         function highlightFeature(e) {
@@ -438,7 +433,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{"Mapa base": layer_Mapabase_4,"Planeación Municipal: Nomenclatura vial": layer_PlaneacinMunicipalNomenclaturavial_3,'<img src="legend/hurtos_2.png" /> hurtos': layer_hurtos_2,'<img src="legend/barrios1_1.png" /> barrios1': layer_barrios1_1,'<img src="legend/comunas2_0.png" /> comunas2': layer_comunas2_0,'<img src="legend/comunas2_0.png" /> comunas2': basemaps,'<img src="legend/comunas2_0.png" /> comunas2': estrato, }).addTo(map);
+        L.control.layers(baseMaps,{"Mapa base": layer_Mapabase_4,"Planeación Municipal: Nomenclatura vial": layer_PlaneacinMunicipalNomenclaturavial_3,'<img src="legend/hurtos_2.png" /> hurtos': layer_hurtos_2,'<img src="legend/barrios1_1.png" /> barrios1': layer_barrios1_1,'<img src="legend/comunas2_0.png" /> comunas2': layer_comunas2_0,'<img src="legend/comunas2_0.png" /> basemaps': basemaps,}).addTo(map);
         setBounds();
         map.addControl(new L.Control.Search({
             layer: layer_barrios1_1,
@@ -467,10 +462,6 @@
 
 
             ///////////// imprimir
-          L.easyPrint({title: 'Mi botón para imprimir',position: 'bottomright', elementsToHide: 'p, h2, .leaflet-control-zoom'}).addTo(map); 
-
-
-
-        </script>
+         </script>
     </body>
 </html>
