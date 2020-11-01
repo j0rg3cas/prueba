@@ -49,7 +49,7 @@
         <script src="data/comunas2_0.js"></script>
         <script src="data/barrios1_1.js"></script>
         <script src="data/hurtos_2.js"></script>
-        
+        <script src="leaflet.easyPrint.js"></script>
         <script>
 
 
@@ -466,7 +466,11 @@
 
 
             ///////////// imprimir
-              
+             L.easyPrint({
+                title: 'Mi botón para imprimir',
+                position: 'bottomright',
+                elementsToHide: 'p, h2, .leaflet-control-zoom' 
+            }).addTo(map); 
 
 
 
