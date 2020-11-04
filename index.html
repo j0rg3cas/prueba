@@ -87,8 +87,7 @@
 
 
 //////////ingreso de wms
-       var Satelite =L.tileLayer.wms('http://ows.mundialis.de/services/service?',{layers:'OSM-WMS'});
-       map.addLayer(Satelite);
+       var Satelite =L.tileLayer.wms('http://ows.mundialis.de/services/service?',{layers:'OSM-WMS'}).addTo(map);
 
        // var Satelite =  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {maxZoom: 22, attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'});
            // map.addLayer(basemaps);
