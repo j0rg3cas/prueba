@@ -475,6 +475,19 @@
         L.control.scale({position:'bottomleft'}).addTo(map);
 
             ///////////// imprimir
+        var printer = L.easyPrint({
+            position: 'topright',
+            tileLayer: mapabase,
+            sizeModes: ['Current', 'A4Landscape', 'A4Portrait'],
+            filename: 'map',
+            exportOnly: true,
+            hideControlContainer: true
+        }).addTo(map);
+
+        function manualPrint () {
+            printer.printMap('CurrentSize', 'MyManualPrint')
+        }
+        console.log();
         </script>
     </body>
 </html>
