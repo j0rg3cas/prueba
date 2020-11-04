@@ -96,6 +96,19 @@
             //map.addLayer(estrato);
 
 
+        var layer_sateliteGoogle_0 = L.tileLayer('http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}', {
+                    pane: 'pane_sateliteGoogle_0',
+                    opacity: 1.0,
+                    attribution: '',
+                    minZoom: 1,
+                    maxZoom: 28,
+                    minNativeZoom: 0,
+                    maxNativeZoom: 18
+                });
+                layer_sateliteGoogle_0;
+                map.addLayer(layer_sateliteGoogle_0);
+
+
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
         var measureControl = new L.Control.Measure({
@@ -476,5 +489,5 @@
 
             ///////////// imprimir
         </script>
-
+    </body>
 </html>
