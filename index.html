@@ -93,7 +93,7 @@
            // map.addLayer(basemaps);
 
         var estrato =L.tileLayer.wms('http://idesc.cali.gov.co:8081/geoserver/wms?service=WMS&version=1.1.0',{layers: 'idesc:est_estrato_social_lado_manzana',attribution: 'Creditos de la capa',format: 'image/png',transparent: true});
-            //map.addLayer(estrato);
+        map.addLayer(estrato);
 
 
         var Satelite= L.tileLayer('http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}', {
