@@ -62,6 +62,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js"></script>
         <script src="print/dist/bundle.js"></script>
         <script>
+
         var highlightLayer;
         function highlightFeature(e) {
             highlightLayer = e.target;
@@ -93,15 +94,12 @@
 
 //////////ingreso de wms
                   
-
-        var Satelite =  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {maxZoom: 22,
-            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS,AEX,GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'});
-   
-
         var estrato =L.tileLayer.wms('http://idesc.cali.gov.co:8081/geoserver/wms?service=WMS&version=1.1.0',{layers: 'idesc:est_estrato_social_lado_manzana',attribution: 'Creditos de la capa',format: 'image/png',transparent: true});
         map.addLayer(estrato);
 
-
+        var Satelite =L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {maxZoom: 22,
+            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS,AEX,GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'});
+   
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
         var measureControl = new L.Control.Measure({
@@ -428,7 +426,7 @@
                 return this._div;
             };
             title.update = function () {
-                this._div.innerHTML = '<h2>geoNoti</h2>';
+                this._div.innerHTML = '<h2></h2>';
             };
             title.addTo(map);
             var abstract = new L.Control({'position':'topright'});
@@ -443,7 +441,7 @@
                 abstract.show = function () {
                     this._div.classList.remove("abstract");
                     this._div.classList.add("abstractUncollapsed");
-                    this._div.innerHTML = 'geoNoti';
+                    this._div.innerHTML = '';
             };
             abstract.addTo(map);
         var osmGeocoder = new L.Control.Geocoder({
@@ -473,7 +471,7 @@
 
         var north = L.control({position: "bottomright"});
                 north.onAdd = function(map) {var div = L.DomUtil.create("div", "info legend");
-                div.innerHTML = '<img src="images/nort1.png">';
+                div.innerHTML = '<img src="images/nort.png">';
                 return div;
             }
             north.addTo(map);
@@ -483,9 +481,9 @@
             ///////////// imprimir
         var printer = L.easyPrint({
             position: 'topright',
-            tileLayer: layer_barrios1_1,
+            tileLayer: baseMaps,
             sizeModes: ['Current', 'A4Landscape', 'A4Portrait'],
-            filename: 'map',
+            filename: 'GeoNoti',
             exportOnly: true,
             hideControlContainer: true}).addTo(map);
 
