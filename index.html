@@ -528,15 +528,14 @@
 
 
 ///////archivos csv
-        function csv(){'use strict';
-
-        $.get('csv/ejemplo.csv', function(csvContents) {
-        var geoLayer = L.geoCsv(csvContents, {firstLineTitles: true, fieldSeparator: ';'});
+        function csv(){'use strict'; 
+        $.get('csv/ejemplo.csv', function(csvContents) {var geoLayer = L.geoCsv(csvContents, {firstLineTitles: true, fieldSeparator: ';'});
         map.addLayer(geoLayer);
               });
             };
         csv();
-
+       
+    
 
         </script>
     </body>
