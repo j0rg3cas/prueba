@@ -469,12 +469,12 @@
 
 ///////ingreso flecha norte
 
-        var north = L.control({position: "bottomright"});
+        var north = L.control({position: "bottomleft"});
                 north.onAdd = function(map) {var div = L.DomUtil.create("div", "info legend");
                 div.innerHTML = '<img src="images/norte.png">';
                 return div;
-            }
-            north.addTo(map);
+            };
+           //north.addTo(map);
 
         L.control.scale({position:'bottomleft'}).addTo(map);
 
