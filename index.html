@@ -485,8 +485,7 @@
             sizeModes: ['Current', 'A4Landscape', 'A4Portrait'],
             filename: 'map',
             exportOnly: true,
-            hideControlContainer: true
-        }).addTo(map);
+            hideControlContainer: true}).addTo(map);
 
         function manualPrint () {
             printer.printMap('CurrentSize', 'MyManualPrint')
@@ -510,7 +509,7 @@
                     marker:true,
                 }
             });
-            map.addControl(drawControl);
+        map.addControl(drawControl);
             
             
         map.on(L.Draw.Event.CREATED, function (e) {
@@ -521,8 +520,8 @@
                     layer.bindPopup('A popup!');
                 }
 
-                drawnItems.addLayer(layer);
-                map.addLayer(drawnItems);
+        drawnItems.addLayer(layer);
+        map.addLayer(drawnItems);
             });
 
         </script>
