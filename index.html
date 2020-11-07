@@ -93,8 +93,9 @@
 
 //////////ingreso de wms
                   
-        var Satelite =  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 22,attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
-        map.addLayer(Satelite);
+        var Satelite = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
+        map.addLayer(map);
 
         var estrato =L.tileLayer.wms('http://idesc.cali.gov.co:8081/geoserver/wms?service=WMS&version=1.1.0',{layers: 'idesc:est_estrato_social_lado_manzana',attribution: 'Creditos de la capa',format: 'image/png',transparent: true});
         map.addLayer(estrato);
