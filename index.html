@@ -104,9 +104,8 @@
         map.addLayer(estrato);
 
         //var Satelite =L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {maxZoom: 22,attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS,AEX,GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'});
-        var Satelite =L.tileLayer.provider('HERE.terrainDay', {app_id: '<insert ID here>',
-                app_code: '<insert ID here>'
-            });
+        var Satelite =L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+           maxZoom: 19,attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
         map.addLayer(Satelite);
 
 
