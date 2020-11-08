@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="https://leaflet.github.io/Leaflet.draw/src/leaflet.draw.css"/>
         <script src="http://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
         <script src="js/leaflet-providers.js"></script>
+
+        <script type="text/javascript" src="../dist/SuperMapLeaflet.js"></script>
     
         <style>
         html, body, #map {
@@ -103,13 +105,12 @@
         var estrato =L.tileLayer.wms('http://idesc.cali.gov.co:8081/geoserver/wms?service=WMS&version=1.1.0',{layers: 'idesc:est_estrato_social_lado_manzana',attribution:'Creditos de la capa',format: 'image/png',transparent: true});
         map.addLayer(estrato);
 
-        var Satelite =L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {maxZoom: 18,attribution:'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS,AEX,GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'});
-        map.addLayer(Satelite);
+       // var Satelite =L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {maxZoom: 18,attribution:'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS,AEX,GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'});
+       // map.addLayer(Satelite);
 
-        var google = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.png', {maxZoom: 18,attribution:'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',});
-        map.addLayer(google);
-
-
+        var map, url = "http://support.supermap.com.cn:8090/iserver/services/map-china400/rest/maps/China";
+        map = L.map('map').setView([3.422418,-76.525458], 10.5);
+        L.supermap.tiledMapLayer(url).addTo(map);
 
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
@@ -470,7 +471,7 @@
         .title += 'Search for a place';
 
         var baseMaps = {};
-        L.control.layers(baseMaps,{"Mapa base": layer_Mapabase_4,"Planeación Municipal: Nomenclatura vial": layer_PlaneacinMunicipalNomenclaturavial_3,'<img src="legend/hurtos_2.png" /> hurtos': layer_hurtos_2,'<img src="legend/barrios1_1.png" /> barrios1': layer_barrios1_1,'<img src="legend/comunas2_0.png" /> comunas2': layer_comunas2_0,'<img src="legend/barrios1_1.png" /> estrato':estrato,'<img src="legend/barrios1_1.png" /> Satelite':Satelite,'<img src="legend/barrios1_1.png" /> Satelite':google}).addTo(map);
+        L.control.layers(baseMaps,{"Mapa base": layer_Mapabase_4,"Planeación Municipal: Nomenclatura vial": layer_PlaneacinMunicipalNomenclaturavial_3,'<img src="legend/hurtos_2.png" /> hurtos': layer_hurtos_2,'<img src="legend/barrios1_1.png" /> barrios1': layer_barrios1_1,'<img src="legend/comunas2_0.png" /> comunas2': layer_comunas2_0,'<img src="legend/barrios1_1.png" /> estrato':estrato,'<img src="legend/barrios1_1.png" /> Satelite':Satelite,}).addTo(map);
         setBounds();
         map.addControl(new L.Control.Search({
             layer: layer_barrios1_1,
