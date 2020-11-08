@@ -59,7 +59,7 @@
         <script src="data/comunas2_0.js"></script>
         <script src="data/barrios1_1.js"></script>
         <script src="data/hurtos_2.js"></script>
-
+        <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise"></script>
         <script src="csv/leaflet.geocsv.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
@@ -91,12 +91,11 @@
             crs: crs,
             continuousWorld: false,
             worldCopyJump: false, 
-            zoomControl:true, maxZoom:28, minZoom:1
-        })
+            zoomControl:true, maxZoom:20, minZoom:1,
+            maxBounds: [[3.06668, -75.663472],[3.91567, -79.388672]],}).setView([3.47, -76.5], 10.1);
+                
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
-
-
 
 
 //////////ingreso de wms
@@ -107,13 +106,9 @@
         var Satelite =L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {maxZoom: 22,attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS,AEX,GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'});
         map.addLayer(Satelite);
 
-         
-            
-        var Satelite1 =  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-            maxZoom: 22,
-            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-        });
-        map.addLayer(Satelite1);
+
+        var google = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom: 22,attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
+    
 
 
 
@@ -474,7 +469,7 @@
         .title += 'Search for a place';
 
         var baseMaps = {};
-        L.control.layers(baseMaps,{"Mapa base": layer_Mapabase_4,"Planeación Municipal: Nomenclatura vial": layer_PlaneacinMunicipalNomenclaturavial_3,'<img src="legend/hurtos_2.png" /> hurtos': layer_hurtos_2,'<img src="legend/barrios1_1.png" /> barrios1': layer_barrios1_1,'<img src="legend/comunas2_0.png" /> comunas2': layer_comunas2_0,'<img src="legend/barrios1_1.png" /> estrato':estrato,'<img src="legend/barrios1_1.png" /> Satelite':Satelite,'<img src="legend/barrios1_1.png" /> Satelite':Satelite1,}).addTo(map);
+        L.control.layers(baseMaps,{"Mapa base": layer_Mapabase_4,"Planeación Municipal: Nomenclatura vial": layer_PlaneacinMunicipalNomenclaturavial_3,'<img src="legend/hurtos_2.png" /> hurtos': layer_hurtos_2,'<img src="legend/barrios1_1.png" /> barrios1': layer_barrios1_1,'<img src="legend/comunas2_0.png" /> comunas2': layer_comunas2_0,'<img src="legend/barrios1_1.png" /> estrato':estrato,'<img src="legend/barrios1_1.png" /> Satelite':Satelite,'<img src="legend/barrios1_1.png" /> Satelite':google,}).addTo(map);
         setBounds();
         map.addControl(new L.Control.Search({
             layer: layer_barrios1_1,
